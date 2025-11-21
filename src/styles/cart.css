@@ -1,0 +1,302 @@
+.cart {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    
+}
+
+.cart .order-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.cart .order-wrapper .products-list {
+    max-width: 720px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+    padding-bottom: 10px;
+}
+
+.cart .order-wrapper .products-list .product {
+    display: flex;
+    gap: 30px;
+    position: relative;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(68, 68, 68, 10%);
+    align-items: center;
+}
+
+.cart .order-wrapper .products-list .product .photo {
+    max-width: 130px;
+    height: 140px;
+    background: rgba(241, 242, 243, 1);
+    width: 100%;
+}
+
+.cart .order-wrapper .products-list .product .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.cart .order-wrapper .products-list .product .product-info .title {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 1);
+    width: 100%;
+    padding-top: 20px;
+}
+
+.cart .order-wrapper .products-list .product .product-info .price-wrapper {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.cart .order-wrapper .products-list .product .product-info .price-wrapper .price-and-quantity {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    justify-content: space-between;
+}
+
+.cart .order-wrapper .products-list .product .product-info .price-wrapper .price-and-quantity .quantity {
+    background-color: rgba(248, 248, 251, 1);
+    display: flex;
+    gap: 20px;
+    padding: 17px 23px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart .order-wrapper .products-list .product .product-info .price-wrapper .price-and-quantity .quantity .count-button {
+    cursor: pointer;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 16px;
+    color: rgba(153, 153, 153, 1);
+}
+
+.cart .order-wrapper .products-list .product .product-info .price-wrapper .price-and-quantity .quantity .count {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.cart .order-wrapper .products-list .product .product-info .price-wrapper .total-price {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.cart .order-wrapper .products-list .product .product-info .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgba(68, 68, 68, 10%);
+    border: 1px solid rgba(68, 68, 68, 10%);
+    padding: 3px 7px;
+    cursor: pointer;
+}
+
+.cart .order-wrapper .order {
+    max-width: 360px;
+    width: 100%;
+    padding: 40px;
+    border: 1px solid rgba(68, 68, 68, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart .order-wrapper .order .title {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38.4px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.cart .order-wrapper .order .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    border: none;
+    border-bottom: 1px solid rgba(68, 68, 68, 10%);
+    padding: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27.2px;
+    color: rgba(68, 68, 68, 1);
+}
+
+.cart .order-wrapper .order .price-row .price {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: right;
+    color: rgba(68, 68, 68, 1);
+}
+
+.cart .order-wrapper .order .price-row .name .delivery-date {
+    font-size: 14px;
+    line-height: 23.8px;
+}
+
+.cart .order-wrapper .order .price-row.delimiter {
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+}
+
+.cart .order-wrapper .order .price-row.total {
+    border: none;
+}
+
+.cart .order-wrapper .order .price-row .total-name {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 34px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.cart .order-wrapper .order .price-row .total-price {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 25px;
+    text-align: right;
+    color: rgba(0, 0, 0, 1);
+}
+
+.cart .order-wrapper .order .button-wrapper {
+    max-width: unset;
+}
+
+.cart .promo-code-wrapper {
+    max-width: 375px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.cart .promo-code-wrapper .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart .promo-code-wrapper .info .title {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38.4px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.cart .promo-code-wrapper .info .description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27.2px;
+    color: rgba(68, 68, 68, 1);
+}
+
+.cart .promo-code-wrapper .promo-code {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.cart .promo-code-wrapper .promo-code .button-wrapper {
+    max-width: 54px;
+}
+
+.cart .promo-code-wrapper .promo-code .button-wrapper .button {
+    padding: 17px 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .cart {
+        margin-top: 150px;
+    }
+
+    .cart .order-wrapper {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .cart .promo-code-wrapper {
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .cart {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 545px) {
+    .cart .order-wrapper .products-list .product .photo {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cart {
+        margin-top: 100px;
+    }
+
+    .cart .order-wrapper .products-list {
+        gap: 35px;
+    }
+
+    .cart .order-wrapper .products-list .product {
+        gap: 20px;
+    }
+
+    .cart .order-wrapper .products-list .product .photo {
+        max-width: 100px;
+    }
+
+    .cart .order-wrapper .products-list .product .product-info {
+        gap: 20px;
+    }
+
+    .cart .order-wrapper .products-list .product .product-info .title {
+        font-size: 17px;
+    }
+
+    .cart .order-wrapper .products-list .product .product-info .price-wrapper {
+        gap: 15px;
+    }
+
+    .cart .order-wrapper .products-list .product .product-info .price-wrapper .price-and-quantity {
+        gap: 20px;
+    }
+
+    .cart .order-wrapper .products-list .product .product-info .price-wrapper .price-and-quantity .price .current-price {
+        font-size: 15px;
+    }
+
+    .cart .order-wrapper .products-list .product .product-info .price-wrapper .total-price {
+        font-size: 17px;
+    }
+}
+
