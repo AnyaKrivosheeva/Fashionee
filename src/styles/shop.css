@@ -113,9 +113,13 @@
 
 .shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .image {
     width: 75px;
-    /* todo: жесткая величина! */
     height: 85px;
     background-color: rgba(241, 242, 243, 1);
+}
+
+.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .image img {
+    width: 75px;
+    height: 85px;
 }
 
 .shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info {
@@ -178,6 +182,7 @@
 .shop .products-wrapper .sort-and-count .sort .input {
     color: rgba(0, 0, 0, 1);
     opacity: 1;
+    cursor: pointer;
 }
 
 .shop .products-wrapper .products {
@@ -196,8 +201,12 @@
 
 .shop .products-wrapper .products .product .product-photo {
     height: 368px;
-    background-color: #F1F2F3;
+    background-color: #f9f8fb;
     position: relative;
+}
+
+.shop .products-wrapper .products .product .product-photo img {
+    width: 100%;
 }
 
 .shop .products-wrapper .products .product .product-photo .top-bar {
@@ -272,6 +281,12 @@
     width: 100%;
     text-align: center;
     opacity: 30%;
+}
+
+.shop .products-wrapper .pagination .pages .page,
+.shop .products-wrapper .pagination .button-left,
+.shop .products-wrapper .pagination .button-right {
+    cursor: pointer;
 }
 
 .shop .products-wrapper .pagination .pages .page.active {
