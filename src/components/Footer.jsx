@@ -8,6 +8,7 @@ import masterCard from '../assets/icons/master-card.svg'
 import payPal from '../assets/icons/pay-pal.svg'
 import payoneer from '../assets/icons/payoneer.svg'
 import points290 from '../assets/images/points290.svg'
+import FindUsLinks from './FindUsLinks'
 
 const Footer = () => {
     return (
@@ -24,28 +25,7 @@ const Footer = () => {
                         <div className='about-brand'>
                             Cillum eu id enim aliquip aute ullamco anim. Culpa deserunt nostrud excepteur voluptate.
                         </div>
-                        <div className='find-us'>
-                            <div className='find-us-text'>
-                                Find us here:
-                            </div>
-                            <div className='find-us-links'>
-                                <div className='find-us-link'>
-                                    <a href=''>FB</a>
-                                </div>
-                                <div className='line'></div>
-                                <div className='find-us-link'>
-                                    <a href=''>TW</a>
-                                </div>
-                                <div className='line'></div>
-                                <div className='find-us-link'>
-                                    <a href=''>INS</a>
-                                </div>
-                                <div className='line'></div>
-                                <div className='find-us-link'>
-                                    <a href=''>PT</a>
-                                </div>
-                            </div>
-                        </div>
+                        <FindUsLinks />
                     </div>
                     <div className='column column-2'>
                         <div className='title'>About</div>

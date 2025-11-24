@@ -2,8 +2,8 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ContentBlock from './components/ContentBlock'
-import Showcase from './components/Showcase'
-import Cart from './components/Cart'
+import Showcase from './components/Showcase/Showcase'
+import Cart from './components/Cart/Cart'
 
 function App() {
     const [currentPage, setCurrentPage] = useState('Shop');
