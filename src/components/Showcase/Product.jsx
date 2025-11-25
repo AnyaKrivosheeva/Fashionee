@@ -1,18 +1,13 @@
 import '../../styles/shop.css'
-import { useState } from 'react'
 import heartIcon from '../../assets/icons/heart.svg'
 import heartIconRed from '../../assets/icons/heart-red.svg'
 
 const Product = (props) => {
     const {
         product,
+        onToggleFavorite,
+        isLiked,
     } = props
-
-    const [isLiked, setIsLiked] = useState(false);
-
-    const handleLiked = () => {
-        setIsLiked(prev => !prev);
-    };
 
     return (
         <div className='product'>
@@ -23,7 +18,7 @@ const Product = (props) => {
                         {product.isSale && <div className='label sale'>Sale</div>}
                         {product.isNew && <div className='label new'>New</div>}
                     </div>
-                    <div className='favorites' onClick={handleLiked}>
+                    <div className='favorites' onClick={() => onToggleFavorite(product.id)}>
                         <img src={isLiked ? heartIconRed : heartIcon} alt='Like' />
                     </div>
                 </div>

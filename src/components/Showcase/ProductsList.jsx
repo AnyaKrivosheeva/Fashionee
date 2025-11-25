@@ -5,6 +5,8 @@ import Product from './Product'
 const ProductsList = (props) => {
     const {
         activePage,
+        onToggleFavorite,
+        favorites,
     } = props
 
     const products = data.products;
@@ -18,7 +20,7 @@ const ProductsList = (props) => {
     return (
         <div className='products'>
             {visibleProducts.map(product => (
-                <Product key={product.id} product={product} />
+                <Product key={product.id} product={product} onToggleFavorite={onToggleFavorite} isLiked={favorites.includes(product.id)} />
             ))}
         </div>
     )
