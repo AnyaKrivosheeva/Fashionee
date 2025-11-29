@@ -8,6 +8,10 @@ const ProductsArea = (props) => {
     const {
         onToggleFavorite,
         favorites,
+        addToCart,
+        increaseQty,
+        decreaseQty,
+        cart,
     } = props
 
     const [activePage, setActivePage] = useState(1);
@@ -15,7 +19,14 @@ const ProductsArea = (props) => {
     return (
         <div className='products-wrapper'>
             <SortAndCount />
-            <ProductsList activePage={activePage} onToggleFavorite={onToggleFavorite} favorites={favorites} />
+            <ProductsList
+                activePage={activePage}
+                onToggleFavorite={onToggleFavorite}
+                favorites={favorites}
+                addToCart={addToCart}
+                increaseQty={increaseQty}
+                decreaseQty={decreaseQty}
+                cart={cart} />
             <Pagination activePage={activePage} setActivePage={setActivePage} />
         </div>
     )

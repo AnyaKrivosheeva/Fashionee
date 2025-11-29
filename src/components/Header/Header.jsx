@@ -7,12 +7,17 @@ const Header = (props) => {
         currentPage,
         setCurrentPage,
         favoritesCount,
+        cartCount,
     } = props
 
     return (
         <header className='header'>
             <LeftSideHeader currentPage={currentPage} setCurrentPage={setCurrentPage} />
-            <RightSide currentPage={currentPage} setCurrentPage={setCurrentPage} favoritesCount={favoritesCount} />
+            <RightSide
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                favoritesCount={favoritesCount}
+                cartCount={cartCount} />
         </header>
     )
 }

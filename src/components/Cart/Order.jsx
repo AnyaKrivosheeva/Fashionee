@@ -1,7 +1,11 @@
 import '../../styles/cart.css'
 import Button from '../Button'
 
-const Order = () => {
+const Order = (props) => {
+    const {
+        cart,
+    } = props
+
     return (
         <div className='order'>
             <div className='title'>Your Order</div>

@@ -4,13 +4,23 @@ import Order from './Order'
 import ProductsListCart from './ProductsListCart';
 
 
-const Cart = () => {
+const Cart = (props) => {
+    const {
+        cart,
+        increaseQty,
+        decreaseQty,
+        removeFromCart,
+    } = props
     return (
         <div className='container'>
             <div className='cart'>
                 <div className='order-wrapper'>
-                    <ProductsListCart />
-                    <Order />
+                    <ProductsListCart
+                        increaseQty={increaseQty}
+                        decreaseQty={decreaseQty}
+                        removeFromCart={removeFromCart}
+                        cart={cart} />
+                    <Order cart={cart} />
                 </div>
                 <PromoCodeBlock />
             </div>

@@ -7,6 +7,10 @@ const ProductsList = (props) => {
         activePage,
         onToggleFavorite,
         favorites,
+        addToCart,
+        increaseQty,
+        decreaseQty,
+        cart,
     } = props
 
     const products = data.products;
@@ -20,7 +24,15 @@ const ProductsList = (props) => {
     return (
         <div className='products'>
             {visibleProducts.map(product => (
-                <Product key={product.id} product={product} onToggleFavorite={onToggleFavorite} isLiked={favorites.includes(product.id)} />
+                <Product
+                    key={product.id}
+                    product={product}
+                    onToggleFavorite={onToggleFavorite}
+                    isLiked={favorites.includes(product.id)}
+                    addToCart={addToCart}
+                    increaseQty={increaseQty}
+                    decreaseQty={decreaseQty}
+                    cart={cart} />
             ))}
         </div>
     )

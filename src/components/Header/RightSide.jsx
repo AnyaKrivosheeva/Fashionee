@@ -9,6 +9,7 @@ const RightSide = (props) => {
         currentPage,
         setCurrentPage,
         favoritesCount,
+        cartCount,
     } = props
 
     return (
@@ -25,7 +26,7 @@ const RightSide = (props) => {
             </div>
             <div className='header-icon' onClick={() => setCurrentPage('Cart')}>
                 <img src={cartIcon} alt='Cart' />
-                <div className='counter'>2</div>
+                <div className='counter'>{cartCount}</div>
             </div>
         </div>
     )

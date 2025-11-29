@@ -7,7 +7,13 @@ const Product = (props) => {
         product,
         onToggleFavorite,
         isLiked,
+        addToCart,
+        increaseQty,
+        decreaseQty,
+        cart,
     } = props
+
+    const itemInCart = cart.find(item => item.id === product.id);
 
     return (
         <div className='product'>
@@ -32,6 +38,16 @@ const Product = (props) => {
                     {product.oldPrice && <div className='old-price'>${product.oldPrice}</div>}
                 </div>
             </div>
+            {!itemInCart ? (
+                <button className='buy-button' onClick={() => addToCart(product.id)}>Buy</button>
+            ) : (
+                <div className='quantity'>
+                    <div className='count-button' onClick={() => decreaseQty(product.id)}>-</div>
+                    <div className='count'>{itemInCart.quantity}</div>
+                    <div className='count-button' onClick={() => increaseQty(product.id)}>+</div>
+                </div>
+            )
+            }
         </div>
     )
 }
