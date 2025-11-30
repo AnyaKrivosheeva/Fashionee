@@ -6,7 +6,10 @@ import Showcase from './components/Showcase/Showcase'
 import Cart from './components/Cart/Cart'
 
 function App() {
-    const [currentPage, setCurrentPage] = useState('Shop');
+    const [currentPage, setCurrentPage] = useState(() => {
+        const saved = localStorage.getItem('currentPage');
+        return saved ? JSON.parse(saved) : 'Shop';
+    });
 
     const [favorites, setFavorites] = useState(() => {
         const saved = localStorage.getItem('favorites');
@@ -17,6 +20,10 @@ function App() {
         const saved = localStorage.getItem('cart');
         return saved ? JSON.parse(saved) : [];
     });
+
+    useEffect(() => {
+        localStorage.setItem('currentPage', JSON.stringify(currentPage));
+    }, [currentPage]);
 
     useEffect(() => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -40,7 +47,9 @@ function App() {
 
             if (isExist) {
                 return cart.map(item => {
-                    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+                    item.id === id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
                 });
             } else {
                 return [...cart, { id, quantity: 1 }];
@@ -49,27 +58,31 @@ function App() {
     };
 
     const increaseQuantity = (id) => {
-        setCart((cart) => {
-            cart.map(item => {
-                item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-            });
-        });
+        setCart(cart =>
+            cart.map(item =>
+                item.id === id
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
+            )
+        );
     };
 
     const decreaseQuantity = (id) => {
-        setCart((cart) => {
+        setCart(cart =>
             cart
-                .map(item => {
-                    item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-                })
+                .map(item =>
+                    item.id === id
+                        ? { ...item, quantity: item.quantity - 1 }
+                        : item
+                )
                 .filter(item => item.quantity > 0)
-        });
+        );
     };
 
     const removeFromCart = (id) => {
-        setCart((cart) => {
+        setCart(cart =>
             cart.filter(item => item.id !== id)
-        });
+        );
     };
 
     return (

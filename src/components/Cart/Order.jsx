@@ -1,4 +1,5 @@
 import '../../styles/cart.css'
+import data from '../../assets/products.json'
 import Button from '../Button'
 
 const Order = (props) => {
@@ -6,12 +7,27 @@ const Order = (props) => {
         cart,
     } = props
 
+    const productsData = data.products;
+
+    const CartProducts = cart.map((item) => {
+        return {
+            ...productsData.find(product => product.id === item.id), quantity: item.quantity
+        };
+
+    });
+
+    const delivery = 16;
+
+    const priceSum = CartProducts.reduce((total, product) => total + product.price * product.quantity, 0);
+
+    const total = priceSum + delivery;
+
     return (
         <div className='order'>
             <div className='title'>Your Order</div>
             <div className='price-row'>
                 <div className='name'>Оrder price</div>
-                <div className='price'>$146.98</div>
+                <div className='price'>${priceSum.toFixed(2)}</div>
             </div>
             <div className='price-row'>
                 <div className='name'>Discount for promo code</div>
@@ -19,11 +35,11 @@ const Order = (props) => {
             </div>
             <div className='price-row delimiter'>
                 <div className='name'>Delivery <span className='delivery-date'>(Aug 02 at 16:00)</span></div>
-                <div className='price'>$16</div>
+                <div className='price'>${delivery.toFixed(2)}</div>
             </div>
             <div className='price-row total'>
                 <div className='total-name'>Total</div>
-                <div className='total-price'>$162.98 </div>
+                <div className='total-price'>${total.toFixed(2)}</div>
             </div>
             <Button>Checkout</Button>
         </div>
