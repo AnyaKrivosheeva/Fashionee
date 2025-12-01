@@ -16,9 +16,9 @@ const Order = (props) => {
 
     });
 
-    const delivery = 16;
-
     const priceSum = CartProducts.reduce((total, product) => total + product.price * product.quantity, 0);
+
+    const delivery = priceSum > 0 ? 16 : 0;
 
     const total = priceSum + delivery;
 

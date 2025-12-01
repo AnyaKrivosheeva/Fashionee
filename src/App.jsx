@@ -46,11 +46,11 @@ function App() {
             const isExist = cart.find(item => item.id === id);
 
             if (isExist) {
-                return cart.map(item => {
+                return cart.map(item =>
                     item.id === id
                         ? { ...item, quantity: item.quantity + 1 }
                         : item
-                });
+                );
             } else {
                 return [...cart, { id, quantity: 1 }];
             }
