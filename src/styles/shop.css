@@ -303,6 +303,7 @@
 
 .shop .products-wrapper .pagination .pages {
     display: flex;
+    justify-content: center;
     gap: 20px;
     max-width: 82px;
     width: 100%;

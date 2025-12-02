@@ -1,4 +1,5 @@
 import '../../styles/shop.css'
+import { useState, useEffect } from 'react'
 import leftPaginArrow from '../../assets/icons/left-pagin-arrow.svg'
 import rightPaginArrow from '../../assets/icons/right-pagin-arrow.svg'
 
@@ -6,9 +7,20 @@ const Pagination = (props) => {
     const {
         activePage,
         setActivePage,
+        totalPages,
     } = props
 
-    const pages = [1, 2, 3];
+    const [pagination, setPagination] = useState([]);
+
+    useEffect(() => {
+        const tempPagination = [];
+
+        for (let i = 0; i < totalPages; i++) {
+            tempPagination.push(i + 1)
+        }
+
+        setPagination(tempPagination)
+    }, [totalPages]);
 
     const handlePrev = () => {
         if (activePage > 1) {
@@ -17,7 +29,7 @@ const Pagination = (props) => {
     };
 
     const handleNext = () => {
-        if (activePage < pages.length) {
+        if (activePage < pagination.length) {
             setActivePage(activePage + 1);
         }
     };
@@ -28,8 +40,8 @@ const Pagination = (props) => {
                 <img src={leftPaginArrow} alt='Arrow left' />
             </div>
             <div className='pages'>
-                {pages.map((page, index) => (
-                    <div key={index} className={`page ${activePage === page ? 'active' : ''}`} onClick={() => setActivePage(page)}>{page}</div>
+                {pagination.map((page) => (
+                    <div key={page} className={`page ${activePage === page ? 'active' : ''}`} onClick={() => setActivePage(page)}>{page}</div>
                 ))}
             </div>
             <div className='button-right' onClick={handleNext}>
