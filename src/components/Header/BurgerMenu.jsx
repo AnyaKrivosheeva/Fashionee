@@ -4,7 +4,7 @@ const BurgerMenu = () => {
     return (
         <div className='burger-menu'>
             <input type='checkbox' id='burger-checkbox' className='burger-checkbox' />
-            <label className='burger' for='burger-checkbox'></label>
+            <label className='burger' htmlFor='burger-checkbox'></label>
         </div>
     )
 }

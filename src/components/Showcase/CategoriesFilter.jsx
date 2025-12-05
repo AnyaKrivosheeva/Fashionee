@@ -4,9 +4,10 @@ const CategoriesFilter = (props) => {
     const {
         activeCategory,
         setActiveCategory,
+        filters,
     } = props
 
-    const categories = ['All', 'Men', 'Women', 'Accessories', 'New Arrivals']
+    const categories = ['All', ...filters.categories];
 
     return (
         <div className='sidebar-item'>

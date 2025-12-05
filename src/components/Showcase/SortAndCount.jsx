@@ -1,12 +1,15 @@
 import '../../styles/shop.css'
-import data from '../../assets/products.json'
 import filterIcon from '../../assets/icons/filter.png'
 
-const SortAndCount = () => {
+const SortAndCount = (props) => {
+    const {
+        filteredProducts,
+    } = props
+
     return (
         <div className='sort-and-count'>
             <div className='products-count'>
-                There are <span className='bold'>{data.products.length}</span> products in this category
+                There are <span className='bold'>{filteredProducts.length}</span> products in this category
             </div>
             <div className='filter'>
                 <img src={filterIcon} alt='Filter' />
