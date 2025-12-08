@@ -1,21 +1,25 @@
 import '../../styles/shop.css'
-import { useState } from 'react'
 import data from '../../assets/products.json'
-import Button from '../Button'
 import BannerSeasonSale from './BannerSeasonSale'
 import CategoriesFilter from './CategoriesFilter'
 import ReviewedItems from './ReviewedItems'
 import SearchForm from './SearchForm'
 import PriceFilter from './PriceFilter'
 import ColorsFilter from './ColorsFilter'
+import ApplyButton from './ApplyButton'
 
 const SideBar = (props) => {
     const {
         searchValue,
         setSearchValue,
+        activeCategory,
+        setActiveCategory,
+        priceFilter,
+        setPriceFilter,
+        selectedColors,
+        setSelectedColors,
+        applyFilters,
     } = props
-
-    const [activeCategory, setActiveCategory] = useState('All');
 
     const categoriesSet = new Set();
     const colorsSet = new Set();
@@ -41,11 +45,9 @@ const SideBar = (props) => {
         <div className='sidebar'>
             <SearchForm searchValue={searchValue} setSearchValue={setSearchValue} />
             <CategoriesFilter activeCategory={activeCategory} setActiveCategory={setActiveCategory} filters={filters} />
-            <PriceFilter filters={filters} />
-            <ColorsFilter filters={filters} />
-            <div className='sidebar-item'>
-                <Button>Apply Filter</Button>
-            </div>
+            <PriceFilter filters={filters} priceFilter={priceFilter} setPriceFilter={setPriceFilter} />
+            <ColorsFilter filters={filters} selectedColors={selectedColors} setSelectedColors={setSelectedColors} />
+            <ApplyButton applyFilters={applyFilters} />
             <ReviewedItems />
             <BannerSeasonSale />
         </div>
