@@ -9,7 +9,7 @@ const SearchForm = (props) => {
 
     return (
         <div className='search-form'>
-            <form>
+            <form onSubmit={e => e.preventDefault()}>
                 <input
                     type='text'
                     placeholder='Search'

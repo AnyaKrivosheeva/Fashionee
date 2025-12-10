@@ -26,7 +26,7 @@ const ProductsArea = (props) => {
 
     return (
         <div className='products-wrapper'>
-            <SortAndCount filteredProducts={products} />
+            <SortAndCount products={products} />
             <ProductsList
                 visibleProducts={visibleProducts}
                 activePage={activePage}

@@ -70,12 +70,8 @@ const Showcase = (props) => {
         localStorage.setItem('filteredProducts', JSON.stringify(filteredProducts));
     }, [filteredProducts]);
 
-    const searchedProducts = products.filter(p =>
-        p.name.toLowerCase().includes(debouncedSearchValue.toLowerCase())
-    );
-
     const applyFilters = () => {
-        let filtered = [...searchedProducts];
+        let filtered = [...products];
 
         if (activeCategory !== 'All') {
             filtered = filtered.filter(p => p.categories.includes(activeCategory));
@@ -96,9 +92,9 @@ const Showcase = (props) => {
         setFilteredProducts(filtered);
     };
 
-    const displayedProducts = debouncedSearchValue
-        ? searchedProducts
-        : filteredProducts;
+    const displayedProducts = filteredProducts.filter(p =>
+        p.name.toLowerCase().includes(debouncedSearchValue.toLowerCase())
+    );
 
     return (
         <div className='container'>
@@ -115,7 +111,6 @@ const Showcase = (props) => {
                     applyFilters={applyFilters} />
                 <ProductsArea
                     products={displayedProducts}
-                    filteredProducts={filteredProducts}
                     onToggleFavorite={onToggleFavorite}
                     favorites={favorites}
                     addToCart={addToCart}
