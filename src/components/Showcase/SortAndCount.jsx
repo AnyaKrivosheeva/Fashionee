@@ -1,5 +1,6 @@
 import '../../styles/shop.css'
 import filterIcon from '../../assets/icons/filter.png'
+import Sort from './Sort'
 
 const SortAndCount = (props) => {
     const {
@@ -14,13 +15,7 @@ const SortAndCount = (props) => {
             <div className='filter'>
                 <img src={filterIcon} alt='Filter' />
             </div>
-            <div className='sort'>
-                <select className='input'>
-                    <option value='RELEVANCE'>By relevance</option>
-                    <option value='ASC'>ASC</option>
-                    <option value='DESC'>DESC</option>
-                </select>
-            </div>
+            <Sort />
         </div>
     )
 }
