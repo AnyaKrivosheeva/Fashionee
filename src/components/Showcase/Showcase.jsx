@@ -28,7 +28,7 @@ const Showcase = (props) => {
     });
     const [priceFilter, setPriceFilter] = useState(() => {
         const saved = localStorage.getItem('priceFilter');
-        return saved ? JSON.parse(saved) : { min: null, max: null };
+        return saved ? JSON.parse(saved) : { min: '', max: '' };
     });
     const [selectedColors, setSelectedColors] = useState(() => {
         const saved = localStorage.getItem('selectedColors');
@@ -77,12 +77,12 @@ const Showcase = (props) => {
             filtered = filtered.filter(p => p.categories.includes(activeCategory));
         }
 
-        if (priceFilter.min !== null) {
-            filtered = filtered.filter(p => p.price >= priceFilter.min);
+        if (priceFilter.min !== '') {
+            filtered = filtered.filter(p => p.price >= Number(priceFilter.min));
         }
 
-        if (priceFilter.max !== null) {
-            filtered = filtered.filter(p => p.price <= priceFilter.max);
+        if (priceFilter.max !== '') {
+            filtered = filtered.filter(p => p.price <= Number(priceFilter.max));
         }
 
         if (selectedColors.length > 0) {

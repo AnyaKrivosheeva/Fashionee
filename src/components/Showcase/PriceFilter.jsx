@@ -11,11 +11,11 @@ const PriceFilter = (props) => {
     const minPrice = filters.priceRange.min;
 
     const handleMinValue = (value) => {
-        setPriceFilter((prev) => ({ ...prev, min: value === 0 ? null : value }))
+        setPriceFilter((prev) => ({ ...prev, min: value }))
     };
 
     const handleMaxValue = (value) => {
-        setPriceFilter((prev) => ({ ...prev, max: value === 0 ? null : value }))
+        setPriceFilter((prev) => ({ ...prev, max: value }))
     };
 
     return (
