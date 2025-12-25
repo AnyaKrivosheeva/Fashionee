@@ -5,6 +5,8 @@ import Sort from './Sort'
 const SortAndCount = (props) => {
     const {
         products,
+        sortType,
+        onChangeSort,
     } = props
 
     return (
@@ -15,7 +17,7 @@ const SortAndCount = (props) => {
             <div className='filter'>
                 <img src={filterIcon} alt='Filter' />
             </div>
-            <Sort />
+            <Sort sortType={sortType} onChangeSort={onChangeSort} />
         </div>
     )
 }
