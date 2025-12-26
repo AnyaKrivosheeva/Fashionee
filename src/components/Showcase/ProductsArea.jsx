@@ -1,8 +1,9 @@
 import '../../styles/shop.css'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import Pagination from './Pagination'
 import SortAndCount from './SortAndCount'
 import ProductsList from './ProductsList'
+import useLocalStorage from '../Hooks/useLocalStorage'
 
 const ProductsArea = (props) => {
     const {
@@ -15,22 +16,9 @@ const ProductsArea = (props) => {
         cart,
     } = props
 
-    const [activePage, setActivePage] = useState(() => {
-        const saved = localStorage.getItem('activePage');
-        return saved ? JSON.parse(saved) : 1;
-    });
-    const [sortType, setSortType] = useState(() => {
-        const saved = localStorage.getItem('sortType');
-        return saved ? JSON.parse(saved) : 'RELEVANCE';
-    });
+    const [activePage, setActivePage] = useLocalStorage('activePage', 1);
 
-    useEffect(() => {
-        localStorage.setItem('activePage', JSON.stringify(activePage));
-    }, [activePage]);
-
-    useEffect(() => {
-        localStorage.setItem('sortType', JSON.stringify(sortType));
-    }, [sortType]);
+    const [sortType, setSortType] = useLocalStorage('sortType', 'RELEVANCE');
 
     const handleChangeSort = (value) => {
         setSortType(value);

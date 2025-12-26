@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
 import '../../styles/shop.css'
 import data from '../../assets/products.json'
 import SideBar from './SideBar'
 import ProductsArea from './ProductsArea'
+import useLocalStorage from '../Hooks/useLocalStorage'
+import useDebounce from '../Hooks/useDebounce'
 
 const Showcase = (props) => {
     const {
@@ -16,59 +17,17 @@ const Showcase = (props) => {
 
     const products = data.products;
 
-    const [searchValue, setSearchValue] = useState(() => {
-        const saved = localStorage.getItem('searchValue');
-        return saved ? JSON.parse(saved) : '';
-    });
-    const [debouncedSearchValue, setDebouncedSearchValue] = useState('');
+    const [searchValue, setSearchValue] = useLocalStorage('searchValue', '');
 
-    const [activeCategory, setActiveCategory] = useState(() => {
-        const saved = localStorage.getItem('activeCategory');
-        return saved ? JSON.parse(saved) : 'All';
-    });
-    const [priceFilter, setPriceFilter] = useState(() => {
-        const saved = localStorage.getItem('priceFilter');
-        return saved ? JSON.parse(saved) : { min: '', max: '' };
-    });
-    const [selectedColors, setSelectedColors] = useState(() => {
-        const saved = localStorage.getItem('selectedColors');
-        return saved ? JSON.parse(saved) : [];
-    });
+    const debouncedSearchValue = useDebounce(searchValue, 350);
 
-    const [filteredProducts, setFilteredProducts] = useState(() => {
-        const saved = localStorage.getItem('filteredProducts');
-        return saved ? JSON.parse(saved) : products;
-    });
+    const [activeCategory, setActiveCategory] = useLocalStorage('activeCategory', 'All');
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setDebouncedSearchValue(searchValue);
-        }, 350);
+    const [priceFilter, setPriceFilter] = useLocalStorage('priceFilter', { min: '', max: '' });
 
-        return () => {
-            clearTimeout(timer);
-        }
-    }, [searchValue]);
+    const [selectedColors, setSelectedColors] = useLocalStorage('selectedColors', []);
 
-    useEffect(() => {
-        localStorage.setItem('searchValue', JSON.stringify(searchValue));
-    }, [searchValue]);
-
-    useEffect(() => {
-        localStorage.setItem('activeCategory', JSON.stringify(activeCategory));
-    }, [activeCategory]);
-
-    useEffect(() => {
-        localStorage.setItem('priceFilter', JSON.stringify(priceFilter));
-    }, [priceFilter]);
-
-    useEffect(() => {
-        localStorage.setItem('selectedColors', JSON.stringify(selectedColors));
-    }, [selectedColors]);
-
-    useEffect(() => {
-        localStorage.setItem('filteredProducts', JSON.stringify(filteredProducts));
-    }, [filteredProducts]);
+    const [filteredProducts, setFilteredProducts] = useLocalStorage('filteredProducts', products);
 
     const applyFilters = () => {
         let filtered = [...products];

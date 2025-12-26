@@ -1,37 +1,16 @@
-import { useEffect, useState } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import ContentBlock from './components/ContentBlock'
 import Showcase from './components/Showcase/Showcase'
 import Cart from './components/Cart/Cart'
+import useLocalStorage from './components/Hooks/useLocalStorage'
 
 function App() {
-    const [currentPage, setCurrentPage] = useState(() => {
-        const saved = localStorage.getItem('currentPage');
-        return saved ? JSON.parse(saved) : 'Shop';
-    });
+    const [currentPage, setCurrentPage] = useLocalStorage('currentPage', 'Shop');
 
-    const [favorites, setFavorites] = useState(() => {
-        const saved = localStorage.getItem('favorites');
-        return saved ? JSON.parse(saved) : [];
-    });
+    const [favorites, setFavorites] = useLocalStorage('favorites', []);
 
-    const [cart, setCart] = useState(() => {
-        const saved = localStorage.getItem('cart');
-        return saved ? JSON.parse(saved) : [];
-    });
-
-    useEffect(() => {
-        localStorage.setItem('currentPage', JSON.stringify(currentPage));
-    }, [currentPage]);
-
-    useEffect(() => {
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    }, [favorites]);
-
-    useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }, [cart]);
+    const [cart, setCart] = useLocalStorage('cart', []);
 
     const toggleFavorite = (id) => {
         if (favorites.includes(id)) {
