@@ -2,8 +2,19 @@ import '../../styles/cart.css'
 import buttonArrow from '../../assets/icons/button-arrow.svg'
 import FindUsLinks from '../FindUsLinks'
 import Button from '../Button'
+import useLocalStorage from '../Hooks/useLocalStorage'
 
-const PromoCodeBlock = () => {
+const PromoCodeBlock = (props) => {
+    const {
+        onApplyPromo,
+    } = props
+
+    const [promo, setPromo] = useLocalStorage('promo', '');
+
+    const handleButtonClick = () => {
+        onApplyPromo(promo.toLowerCase().trim());
+    };
+
     return (
         <div className='promo-code-wrapper'>
             <div className='info'>
@@ -11,12 +22,19 @@ const PromoCodeBlock = () => {
                 <div className='description'>To receive up-to-date promotional codes, subscribe to us on social
                     networks.</div>
             </div>
-            <form className='promo-code'>
-                <input type='text' placeholder='Enter promo code' name='promo-code' className='input' />
-                <Button>
+            <div className='promo-code'>
+                <input
+                    type='text'
+                    placeholder='Enter promo code'
+                    name='promo-code'
+                    className='input'
+                    value={promo}
+                    onChange={(e) => setPromo(e.target.value)}
+                />
+                <Button onClick={handleButtonClick}>
                     <img src={buttonArrow} />
                 </Button>
-            </form>
+            </div>
             <FindUsLinks />
         </div>
     )

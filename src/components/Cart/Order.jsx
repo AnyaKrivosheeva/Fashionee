@@ -1,26 +1,20 @@
 import '../../styles/cart.css'
-import data from '../../assets/products.json'
 import Button from '../Button'
 
 const Order = (props) => {
     const {
-        cart,
+        CartProducts,
+        promoDiscount,
+        onCheckout,
     } = props
-
-    const productsData = data.products;
-
-    const CartProducts = cart.map((item) => {
-        return {
-            ...productsData.find(product => product.id === item.id), quantity: item.quantity
-        };
-
-    });
 
     const priceSum = CartProducts.reduce((total, product) => total + product.price * product.quantity, 0);
 
-    const delivery = priceSum > 0 ? 16 : 0;
+    const discountAmount = priceSum * promoDiscount;
 
-    const total = priceSum + delivery;
+    const delivery = priceSum > 0 ? 15 : 0;
+
+    const total = priceSum - discountAmount + delivery;
 
     return (
         <div className='order'>
@@ -31,7 +25,9 @@ const Order = (props) => {
             </div>
             <div className='price-row'>
                 <div className='name'>Discount for promo code</div>
-                <div>No</div>
+                <div>
+                    {promoDiscount > 0 ? '10%' : 'No'}
+                </div>
             </div>
             <div className='price-row delimiter'>
                 <div className='name'>Delivery <span className='delivery-date'>(Aug 02 at 16:00)</span></div>
@@ -41,7 +37,16 @@ const Order = (props) => {
                 <div className='total-name'>Total</div>
                 <div className='total-price'>${total.toFixed(2)}</div>
             </div>
-            <Button>Checkout</Button>
+            <Button onClick={() => {
+                onCheckout({
+                    delivery,
+                    discountAmount,
+                    priceSum,
+                    total,
+                })
+            }}>
+                Checkout
+            </Button>
         </div>
     )
 }
