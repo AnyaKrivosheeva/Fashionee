@@ -1,6 +1,8 @@
 import '../../styles/cart.css'
 import Button from '../Button'
 
+const DELIVERY_COST = 15;
+
 const Order = (props) => {
     const {
         CartProducts,
@@ -12,7 +14,7 @@ const Order = (props) => {
 
     const discountAmount = priceSum * promoDiscount;
 
-    const delivery = priceSum > 0 ? 15 : 0;
+    const delivery = priceSum > 0 ? DELIVERY_COST : 0;
 
     const total = priceSum - discountAmount + delivery;
 
@@ -26,7 +28,10 @@ const Order = (props) => {
             <div className='price-row'>
                 <div className='name'>Discount for promo code</div>
                 <div>
-                    {promoDiscount > 0 ? '10%' : 'No'}
+                    {promoDiscount > 0
+                        ? `${promoDiscount * 100}%`
+                        : 'No'
+                    }
                 </div>
             </div>
             <div className='price-row delimiter'>

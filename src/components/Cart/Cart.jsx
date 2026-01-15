@@ -1,10 +1,13 @@
+import { useMemo } from 'react'
 import '../../styles/cart.css'
 import data from '../../assets/products.json'
 import PromoCodeBlock from './PromoCodeBlock'
 import Order from './Order'
-import ProductsListCart from './ProductsListCart';
-import useLocalStorage from '../Hooks/useLocalStorage';
+import ProductsListCart from './ProductsListCart'
+import useLocalStorage from '../Hooks/useLocalStorage'
 
+const DISCOUNT_RATE = 0.1;
+const VALID_PROMO_CODE = 'ilovereact';
 
 const Cart = (props) => {
     const {
@@ -21,8 +24,8 @@ const Cart = (props) => {
             setPromoDiscount(0);
             return;
         }
-        if (code === 'ilovereact') {
-            setPromoDiscount(0.1);
+        if (code === VALID_PROMO_CODE) {
+            setPromoDiscount(DISCOUNT_RATE);
         } else {
             setPromoDiscount(0);
         }
@@ -30,12 +33,12 @@ const Cart = (props) => {
 
     const productsData = data.products;
 
-    const CartProducts = cart.map((item) => {
-        return {
-            ...productsData.find(product => product.id === item.id), quantity: item.quantity
-        };
-
-    });
+    const CartProducts = useMemo(() =>
+        cart.map(item => ({
+            ...productsData.find(product => product.id === item.id),
+            quantity: item.quantity
+        })),
+        [cart, productsData]);
 
     const handleCheckout = (summary) => {
         const items = CartProducts.map(p => ({
@@ -51,7 +54,7 @@ const Cart = (props) => {
             discountRate: promoDiscount,
             discountAmount: summary.discountAmount,
             totalPrice: summary.total,
-            promoCode: promoDiscount > 0 ? 'ilovereact' : null,
+            promoCode: promoDiscount > 0 ? VALID_PROMO_CODE : null,
             items,
         };
 
