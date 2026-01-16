@@ -17,8 +17,8 @@ const PromoCodeBlock = (props) => {
 
     return (
         <div className={styles.promoCodeWrapper}>
-            <div className={styles.info}>
-                <div className={styles.title}>You Have A Promo Code?</div>
+            <div className={styles.promoInfo}>
+                <div className={styles.promoTitle}>You Have A Promo Code?</div>
                 <div className={styles.description}>To receive up-to-date promotional codes, subscribe to us on social
                     networks.</div>
             </div>

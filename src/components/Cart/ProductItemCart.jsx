@@ -14,10 +14,10 @@ const ProductItemCart = (props) => {
                 <img src={product.image} />
             </div>
             <div className={styles.productInfo}>
-                <div className={styles.title}>{product.name}</div>
+                <div className={styles.productTitle}>{product.name}</div>
                 <div className={styles.priceWrapper}>
                     <div className={styles.priceAndQuantity}>
-                        <div className={styles.price}>
+                        <div className={styles.productPrice}>
                             {product.oldPrice && (
                                 <div className={styles.oldPrice}>${product.oldPrice}</div>
                             )}
@@ -29,7 +29,7 @@ const ProductItemCart = (props) => {
                             <div className={styles.countButton} onClick={() => increaseQty(product.id)}>+</div>
                         </div>
                     </div>
-                    <div className={styles.totalPrice}>${product.price * product.quantity}</div>
+                    <div className={styles.totalProductPrice}>${product.price * product.quantity}</div>
                 </div>
                 <div className={styles.close} onClick={() => removeFromCart(product.id)}>X</div>
             </div>

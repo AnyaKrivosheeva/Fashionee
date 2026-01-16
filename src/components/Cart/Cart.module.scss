@@ -119,7 +119,7 @@
     }
 }
 
-.title {
+.productTitle {
     font-family: "Josefin Sans", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -152,7 +152,7 @@
     }
 }
 
-.price {
+.productPrice {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -210,7 +210,7 @@
     color: rgba(0, 0, 0, 1);
 }
 
-.totalPrice {
+.totalProductPrice {
     font-family: "Josefin Sans", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -322,13 +322,13 @@
     }
 }
 
-.info {
+.promoInfo {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.title {
+.promoTitle {
     font-family: "Josefin Sans", sans-serif;
     font-size: 32px;
     font-weight: 400;
