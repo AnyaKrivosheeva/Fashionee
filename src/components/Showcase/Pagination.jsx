@@ -1,4 +1,4 @@
-import '../../styles/shop.css'
+import styles from './Shop.module.scss'
 import { useState, useEffect } from 'react'
 import leftPaginArrow from '../../assets/icons/left-pagin-arrow.svg'
 import rightPaginArrow from '../../assets/icons/right-pagin-arrow.svg'
@@ -35,16 +35,16 @@ const Pagination = (props) => {
     };
 
     return (
-        <div className='pagination'>
-            <div className='button-left' onClick={handlePrev}>
+        <div className={styles.pagination}>
+            <div className={styles.buttonLeft} onClick={handlePrev}>
                 <img src={leftPaginArrow} alt='Arrow left' />
             </div>
-            <div className='pages'>
+            <div className={styles.pages}>
                 {pagination.map((page) => (
-                    <div key={page} className={`page ${activePage === page ? 'active' : ''}`} onClick={() => setActivePage(page)}>{page}</div>
+                    <div key={page} className={`${styles.page} ${activePage === page ? styles.activePage : ''}`} onClick={() => setActivePage(page)}>{page}</div>
                 ))}
             </div>
-            <div className='button-right' onClick={handleNext}>
+            <div className={styles.buttonRight} onClick={handleNext}>
                 <img src={rightPaginArrow} alt='Arrow right' />
             </div>
         </div>

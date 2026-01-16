@@ -1,4 +1,4 @@
-import '../../styles/cart.css'
+import styles from './Cart.module.scss'
 import buttonArrow from '../../assets/icons/button-arrow.svg'
 import FindUsLinks from '../FindUsLinks'
 import Button from '../Button'
@@ -16,22 +16,25 @@ const PromoCodeBlock = (props) => {
     };
 
     return (
-        <div className='promo-code-wrapper'>
-            <div className='info'>
-                <div className='title'>You Have A Promo Code?</div>
-                <div className='description'>To receive up-to-date promotional codes, subscribe to us on social
+        <div className={styles.promoCodeWrapper}>
+            <div className={styles.info}>
+                <div className={styles.title}>You Have A Promo Code?</div>
+                <div className={styles.description}>To receive up-to-date promotional codes, subscribe to us on social
                     networks.</div>
             </div>
-            <div className='promo-code'>
+            <div className={styles.promoCode}>
                 <input
                     type='text'
                     placeholder='Enter promo code'
                     name='promo-code'
-                    className='input'
+                    className={styles.input}
                     value={promo}
                     onChange={(e) => setPromo(e.target.value)}
                 />
-                <Button onClick={handleButtonClick}>
+                <Button
+                    wrapperClassName={styles.buttonWrapperPromo}
+                    buttonClassName={styles.buttonPromo}
+                    onClick={handleButtonClick}>
                     <img src={buttonArrow} />
                 </Button>
             </div>

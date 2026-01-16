@@ -1,4 +1,4 @@
-import '../../styles/shop.css'
+import styles from './Shop.module.scss'
 import { useMemo } from 'react'
 import Pagination from './Pagination'
 import SortAndCount from './SortAndCount'
@@ -60,7 +60,7 @@ const ProductsArea = (props) => {
     const visibleProducts = sortedProducts.slice(start, end);
 
     return (
-        <div className='products-wrapper'>
+        <div className={styles.productsWrapper}>
             <SortAndCount products={products} sortType={sortType} onChangeSort={handleChangeSort} />
             <ProductsList
                 visibleProducts={visibleProducts}

@@ -1,4 +1,4 @@
-import '../../styles/shop.css'
+import styles from './Shop.module.scss'
 
 const CategoriesFilter = (props) => {
     const {
@@ -10,12 +10,12 @@ const CategoriesFilter = (props) => {
     const categories = ['All', ...filters.categories];
 
     return (
-        <div className='sidebar-item'>
-            <div className='sidebar-title'>Categories</div>
-            <div className='sidebar-content'>
-                <ul className='custom-list'>
+        <div className={styles.sidebarItem}>
+            <div className={styles.sidebarTitle}>Categories</div>
+            <div className={styles.sidebarContent}>
+                <ul className={styles.customList}>
                     {categories.map((category, index) => (
-                        <li key={index} className={`item ${activeCategory === category ? 'active' : ''}`} onClick={() => setActiveCategory(category)}>{category}</li>
+                        <li key={index} className={`${styles.item} ${activeCategory === category ? styles.active : ''}`} onClick={() => setActiveCategory(category)}>{category}</li>
                     ))}
                 </ul>
             </div>

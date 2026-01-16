@@ -70,10 +70,12 @@ function App() {
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
                 favoritesCount={favorites.length}
-                cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)} />
+                cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
+            />
             <ContentBlock
                 currentPage={currentPage}
-                setCurrentPage={setCurrentPage} />
+                setCurrentPage={setCurrentPage}
+            />
             <main>
                 {currentPage === 'Shop' && <Showcase
                     onToggleFavorite={toggleFavorite}
@@ -88,7 +90,6 @@ function App() {
                     removeFromCart={removeFromCart}
                     cart={cart} />}
             </main>
-
             <Footer />
         </>
     )

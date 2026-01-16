@@ -1,4 +1,4 @@
-import '../../styles/shop.css'
+import styles from './Shop.module.scss'
 import data from '../../assets/products.json'
 import BannerSeasonSale from './BannerSeasonSale'
 import CategoriesFilter from './CategoriesFilter'
@@ -42,7 +42,7 @@ const SideBar = (props) => {
     };
 
     return (
-        <div className='sidebar'>
+        <div className={styles.sidebar}>
             <SearchForm searchValue={searchValue} setSearchValue={setSearchValue} />
             <CategoriesFilter activeCategory={activeCategory} setActiveCategory={setActiveCategory} filters={filters} />
             <PriceFilter filters={filters} priceFilter={priceFilter} setPriceFilter={setPriceFilter} />

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import '../../styles/cart.css'
+import styles from './Cart.module.scss'
 import data from '../../assets/products.json'
 import PromoCodeBlock from './PromoCodeBlock'
 import Order from './Order'
@@ -62,9 +62,9 @@ const Cart = (props) => {
     };
 
     return (
-        <div className='container'>
-            <div className='cart'>
-                <div className='order-wrapper'>
+        <div className={styles.container}>
+            <div className={styles.cart}>
+                <div className={styles.orderWrapper}>
                     {
                         cart.length > 0 && <ProductsListCart
                             increaseQty={increaseQty}

@@ -1,4 +1,4 @@
-import '../../styles/header.css'
+import styles from './Header.module.scss'
 import BurgerMenu from './BurgerMenu'
 import Logo from './Logo'
 import Menu from './Menu'
@@ -10,8 +10,8 @@ const LeftSideHeader = (props) => {
     } = props
 
     return (
-        <div className='left-side'>
-            <div className='logo-container'>
+        <div className={styles.leftSide}>
+            <div className={styles.logoContainer}>
                 <BurgerMenu />
                 <Logo />
             </div>

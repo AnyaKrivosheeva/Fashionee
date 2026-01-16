@@ -1,4 +1,4 @@
-import '../../styles/shop.css'
+import styles from './Shop.module.scss'
 import Checkbox from './Checkbox';
 
 const ColorsFilter = (props) => {
@@ -20,18 +20,18 @@ const ColorsFilter = (props) => {
     };
 
     return (
-        <div className='sidebar-item'>
-            <div className='sidebar-title'>Colors</div>
-            <div className='sidebar-content'>
-                <div className='colors'>
+        <div className={styles.sidebarItem}>
+            <div className={styles.sidebarTitle}>Colors</div>
+            <div className={styles.sidebarContent}>
+                <div className={styles.colors}>
                     {colors.map((color) => (
                         <Checkbox key={color.toLowerCase()}
-                            divClassName='color'
-                            inputClassName='color-checkbox'
+                            divClassName={styles.color}
+                            inputClassName={styles.colorCheckbox}
                             name='color'
                             value={color.toLocaleLowerCase()}
                             id={color.toLocaleLowerCase()}
-                            labelClassName='color-name'
+                            labelClassName={styles.colorName}
                             htmlFor={color.toLocaleLowerCase()}
                             color={color}
                             checked={selectedColors.includes(color.toLowerCase())}

@@ -1,4 +1,4 @@
-import '../../styles/cart.css'
+import styles from './Cart.module.scss'
 import data from '../../assets/products.json'
 import ProductItemCart from './ProductItemCart'
 
@@ -20,7 +20,7 @@ const ProductsListCart = (props) => {
     });
 
     return (
-        <div className='products-list'>
+        <div className={styles.productsList}>
             {CartProducts.map(product => (
                 <ProductItemCart
                     key={product.id}

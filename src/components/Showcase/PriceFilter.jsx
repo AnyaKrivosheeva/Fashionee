@@ -1,4 +1,4 @@
-import '../../styles/shop.css'
+import styles from './Shop.module.scss'
 
 const PriceFilter = (props) => {
     const {
@@ -19,18 +19,18 @@ const PriceFilter = (props) => {
     };
 
     return (
-        <div className='sidebar-item'>
-            <div className='sidebar-title'>Price</div>
-            <div className='sidebar-content'>
-                <div className='price-bar'>
+        <div className={styles.sidebarItem}>
+            <div className={styles.sidebarTitle}>Price</div>
+            <div className={styles.sidebarContent}>
+                <div className={styles.priceBar}>
                     <input type='text'
                         placeholder={minPrice}
-                        className='input'
+                        className={styles.input}
                         value={priceFilter.min}
                         onChange={(e) => handleMinValue(Number(e.target.value))} />
                     <input type='text'
                         placeholder={maxPrice}
-                        className='input'
+                        className={styles.input}
                         value={priceFilter.max}
                         onChange={(e) => handleMaxValue(Number(e.target.value))} />
                 </div>

@@ -1,0 +1,26 @@
+.buttonWrapper {
+    display: flex;
+    gap: 2px;
+    max-width: 240px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button {
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    border: none;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 17px 74px 17px 74px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.verticalLine {
+    min-width: 2px;
+    background: rgba(0, 0, 0, 1);
+}
+

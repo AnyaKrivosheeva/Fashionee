@@ -1,4 +1,4 @@
-import '../../styles/shop.css'
+import styles from './Shop.module.scss'
 import Product from './Product'
 
 const ProductsList = (props) => {
@@ -13,7 +13,7 @@ const ProductsList = (props) => {
     } = props
 
     return (
-        <div className='products'>
+        <div className={styles.products}>
             {visibleProducts.map(product => (
                 <Product
                     key={product.id}

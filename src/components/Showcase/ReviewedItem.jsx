@@ -1,4 +1,4 @@
-import '../../styles/cart.css'
+import styles from './Shop.module.scss'
 
 const ReviewedItem = (props) => {
     const {
@@ -6,15 +6,15 @@ const ReviewedItem = (props) => {
     } = props
 
     return (
-        <div className='product'>
-            <div className='image'>
+        <div className={styles.reviewedProduct}>
+            <div className={styles.image}>
                 <img src={product.image} />
             </div>
-            <div className='info'>
-                <div className='name'>{product.name}</div>
-                <div className='price'>
-                    <div className='current-price'>${product.price}</div>
-                    {product.oldPrice && <div className='old-price'>${product.oldPrice}</div>}
+            <div className={styles.reviewedProductInfo}>
+                <div className={styles.reviewedProductName}>{product.name}</div>
+                <div className={styles.reviewedProductPrice}>
+                    <div className={styles.reviewedProductCurrentPrice}>${product.price}</div>
+                    {product.oldPrice && <div className={styles.reviewedProductOldPrice}>${product.oldPrice}</div>}
                 </div>
             </div>
         </div>

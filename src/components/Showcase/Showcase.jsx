@@ -1,4 +1,4 @@
-import '../../styles/shop.css'
+import styles from './Shop.module.scss'
 import data from '../../assets/products.json'
 import SideBar from './SideBar'
 import ProductsArea from './ProductsArea'
@@ -56,8 +56,8 @@ const Showcase = (props) => {
     );
 
     return (
-        <div className='container'>
-            <div className='shop'>
+        <div className={styles.container}>
+            <div className={styles.shop}>
                 <SideBar
                     searchValue={searchValue}
                     setSearchValue={setSearchValue}

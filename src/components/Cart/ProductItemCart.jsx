@@ -1,4 +1,4 @@
-import '../../styles/cart.css'
+import styles from './Cart.module.scss'
 
 const ProductItemCart = (props) => {
     const {
@@ -9,29 +9,29 @@ const ProductItemCart = (props) => {
     } = props
 
     return (
-        <div className='product'>
-            <div className='photo'>
+        <div className={styles.product}>
+            <div className={styles.photo}>
                 <img src={product.image} />
             </div>
-            <div className='product-info'>
-                <div className='title'>{product.name}</div>
-                <div className='price-wrapper'>
-                    <div className='price-and-quantity'>
-                        <div className='price'>
+            <div className={styles.productInfo}>
+                <div className={styles.title}>{product.name}</div>
+                <div className={styles.priceWrapper}>
+                    <div className={styles.priceAndQuantity}>
+                        <div className={styles.price}>
                             {product.oldPrice && (
-                                <div className="old-price">${product.oldPrice}</div>
+                                <div className={styles.oldPrice}>${product.oldPrice}</div>
                             )}
-                            <div className='current-price'>${product.price}</div>
+                            <div className={styles.currentPrice}>${product.price}</div>
                         </div>
-                        <div className='quantity'>
-                            <div className='count-button' onClick={() => decreaseQty(product.id)}>-</div>
-                            <div className='count'>{product.quantity}</div>
-                            <div className='count-button' onClick={() => increaseQty(product.id)}>+</div>
+                        <div className={styles.quantity}>
+                            <div className={styles.countButton} onClick={() => decreaseQty(product.id)}>-</div>
+                            <div className={styles.count}>{product.quantity}</div>
+                            <div className={styles.countButton} onClick={() => increaseQty(product.id)}>+</div>
                         </div>
                     </div>
-                    <div className='total-price'>${product.price * product.quantity}</div>
+                    <div className={styles.totalPrice}>${product.price * product.quantity}</div>
                 </div>
-                <div className='close' onClick={() => removeFromCart(product.id)}>X</div>
+                <div className={styles.close} onClick={() => removeFromCart(product.id)}>X</div>
             </div>
         </div>
     )

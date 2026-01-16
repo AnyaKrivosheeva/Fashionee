@@ -1,4 +1,4 @@
-import '../../styles/header.css'
+import styles from './Header.module.scss'
 import LeftSideHeader from './LeftSideHeader'
 import RightSide from './RightSide'
 
@@ -11,13 +11,13 @@ const Header = (props) => {
     } = props
 
     return (
-        <header className='header'>
+        <header className={styles.header}>
             <LeftSideHeader currentPage={currentPage} setCurrentPage={setCurrentPage} />
             <RightSide
-                currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
                 favoritesCount={favoritesCount}
-                cartCount={cartCount} />
+                cartCount={cartCount}
+            />
         </header>
     )
 }

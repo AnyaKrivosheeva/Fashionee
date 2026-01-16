@@ -1,4 +1,4 @@
-import '../../styles/cart.css'
+import styles from './Cart.module.scss'
 import Button from '../Button'
 
 const DELIVERY_COST = 15;
@@ -19,14 +19,14 @@ const Order = (props) => {
     const total = priceSum - discountAmount + delivery;
 
     return (
-        <div className='order'>
-            <div className='title'>Your Order</div>
-            <div className='price-row'>
-                <div className='name'>Оrder price</div>
-                <div className='price'>${priceSum.toFixed(2)}</div>
+        <div className={styles.order}>
+            <div className={styles.title}>Your Order</div>
+            <div className={styles.priceRow}>
+                <div className={styles.name}>Оrder price</div>
+                <div className={styles.price}>${priceSum.toFixed(2)}</div>
             </div>
-            <div className='price-row'>
-                <div className='name'>Discount for promo code</div>
+            <div className={styles.priceRow}>
+                <div className={styles.name}>Discount for promo code</div>
                 <div>
                     {promoDiscount > 0
                         ? `${promoDiscount * 100}%`
@@ -34,22 +34,24 @@ const Order = (props) => {
                     }
                 </div>
             </div>
-            <div className='price-row delimiter'>
-                <div className='name'>Delivery <span className='delivery-date'>(Aug 02 at 16:00)</span></div>
-                <div className='price'>${delivery.toFixed(2)}</div>
+            <div className={`${styles.priceRow} ${styles.delimiter}`}>
+                <div className={styles.name}>Delivery <span className={styles.deliveryDate}>(Aug 02 at 16:00)</span></div>
+                <div className={styles.price}>${delivery.toFixed(2)}</div>
             </div>
-            <div className='price-row total'>
-                <div className='total-name'>Total</div>
-                <div className='total-price'>${total.toFixed(2)}</div>
+            <div className={`${styles.priceRow} ${styles.total}`}>
+                <div className={styles.totalName}>Total</div>
+                <div className={styles.totalPrice}>${total.toFixed(2)}</div>
             </div>
-            <Button onClick={() => {
-                onCheckout({
-                    delivery,
-                    discountAmount,
-                    priceSum,
-                    total,
-                })
-            }}>
+            <Button
+                wrapperClassName={styles.orderButtonWrapper}
+                onClick={() => {
+                    onCheckout({
+                        delivery,
+                        discountAmount,
+                        priceSum,
+                        total,
+                    })
+                }}>
                 Checkout
             </Button>
         </div>

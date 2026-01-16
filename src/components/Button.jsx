@@ -1,14 +1,18 @@
+import styles from './Button.module.css'
+
 const Button = (props) => {
     const {
         children,
+        wrapperClassName = '',
+        buttonClassName = '',
         onClick,
     } = props
     return (
-        <div className='button-wrapper'>
-            <button className='button' onClick={onClick}>
+        <div className={`${styles.buttonWrapper} ${wrapperClassName}`}>
+            <button className={`${styles.button} ${buttonClassName}`} onClick={onClick}>
                 {children}
             </button>
-            <div className='vertical-line'></div>
+            <div className={styles.verticalLine}></div>
         </div>
     )
 }

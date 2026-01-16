@@ -1,10 +1,10 @@
-import '../../styles/header.css'
+import styles from './Header.module.scss'
 
 const BurgerMenu = () => {
     return (
-        <div className='burger-menu'>
-            <input type='checkbox' id='burger-checkbox' className='burger-checkbox' />
-            <label className='burger' htmlFor='burger-checkbox'></label>
+        <div className={styles.burgerMenu}>
+            <input type='checkbox' id='burger-checkbox' className={styles.burgerCheckbox} />
+            <label className={styles.burger} htmlFor='burger-checkbox'></label>
         </div>
     )
 }

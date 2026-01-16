@@ -1,4 +1,4 @@
-import '../styles/commons.css'
+import styles from './ContentBlock.module.scss'
 import verticalLine from '../assets/images/vertical-line.svg'
 import points322 from '../assets/images/points322.svg'
 
@@ -9,28 +9,28 @@ const ContentBlock = (props) => {
     } = props
 
     return (
-        <div className='page-header-wrapper'>
-            <div className='page-header-menu'>
-                <div className='page-info'>
-                    <div className='title'>{currentPage}</div>
-                    <div className='menu-items'>
-                        <div className='vertical-line'>
+        <div className={styles.pageHeaderWrapper}>
+            <div className={styles.pageHeaderMenu}>
+                <div className={styles.pageInfo}>
+                    <div className={styles.title}>{currentPage}</div>
+                    <div className={styles.menuItems}>
+                        <div className={styles.verticalLine}>
                             <img src={verticalLine} alt='Vertical line' />
                         </div>
-                        <div className={`menu-item ${currentPage === 'Cart' ? 'active' : ''}`}>
+                        <div className={`${styles.menuItem} ${currentPage === 'Cart' ? styles.active : ''}`}>
                             <span onClick={() => setCurrentPage('Cart')}>Cart</span>
                         </div>
-                        <div className={`menu-item ${currentPage === 'Shop' ? 'active' : ''}`}>
+                        <div className={`${styles.menuItem} ${currentPage === 'Shop' ? styles.active : ''}`}>
                             <span onClick={() => setCurrentPage('Shop')}>Shop</span>
                         </div>
                     </div>
                 </div>
-                <div className='line-decoration'></div>
-                <div className='points-header-decoration'>
+                <div className={styles.lineDecoration}></div>
+                <div className={styles.pointsHeaderDecoration}>
                     <img src={points322} alt='Points decoration' />
                 </div>
             </div>
-            <div className='photo-header'></div>
+            <div className={styles.photoHeader}></div>
         </div>
     )
 }
