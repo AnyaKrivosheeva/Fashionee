@@ -360,11 +360,11 @@
     font-weight: 500;
     line-height: 23.8px;
     opacity: 50%;
-}
 
-.input::placeholder {
-    color: rgba(68, 68, 68, 50%);
-    font-weight: 400;
+    &::placeholder {
+        color: rgba(68, 68, 68, 50%);
+        font-weight: 400;
+    }
 }
 
 .buttonWrapperPromo {

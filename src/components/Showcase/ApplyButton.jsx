@@ -1,5 +1,5 @@
-import styles from './Shop.module.scss'
 import Button from '../Button'
+import styles from './Shop.module.scss'
 
 const ApplyButton = (props) => {
     const {
@@ -8,7 +8,11 @@ const ApplyButton = (props) => {
 
     return (
         <div className={styles.sidebarItem}>
-            <Button onClick={applyFilters}>Apply Filter</Button>
+            <Button
+                buttonClassName={styles.buttonApply}
+                onClick={applyFilters}>
+                Apply Filter
+            </Button>
         </div>
     )
 }
