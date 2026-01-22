@@ -79,7 +79,7 @@
 
 .aboutBrand {
     padding: 0 0 25px 0;
-    border-bottom: 1px solid rgba(68, 68, 68, 20%);
+    border-bottom: var(--border-grey-thin);
     margin: 0 0 35px 0;
     font-size: 14px;
     font-weight: 400;
@@ -179,7 +179,7 @@
 .input {
     padding-right: 30px;
     border: none;
-    border-bottom: 1px solid rgba(68, 68, 68, 20%);
+    border-bottom: var(--border-grey-thin);
     width: 100%;
     padding: 0 0 15px 0;
     color: rgba(68, 68, 68, 50%);
@@ -200,7 +200,7 @@
     display: flex;
     justify-content: space-between;
     gap: 15px;
-    border-top: 1px solid rgba(68, 68, 68, 20%);
+    border-top: var(--border-grey-thin);
     padding-top: 23px;
     font-size: 14px;
     font-weight: 400;

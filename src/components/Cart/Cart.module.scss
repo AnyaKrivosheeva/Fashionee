@@ -64,7 +64,7 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
-    border-bottom: 2px solid rgba(0, 0, 0, 1);
+    border-bottom: var(--border-black-thick);
     padding-bottom: 10px;
 
     @media screen and (max-width: 480px) {
@@ -79,7 +79,7 @@
     gap: 30px;
     position: relative;
     padding-bottom: 30px;
-    border-bottom: 1px solid rgba(68, 68, 68, 10%);
+    border-bottom: var(--border-grey-thin);
     align-items: center;
 
     @media screen and (max-width: 480px) {
@@ -124,7 +124,7 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary-color);
     width: 100%;
     padding-top: 20px;
 
@@ -207,7 +207,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary-color);
 }
 
 .totalProductPrice {
@@ -215,15 +215,15 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 20px;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary-color);
 }
 
 .close {
     position: absolute;
     top: 0;
     right: 0;
-    color: rgba(68, 68, 68, 10%);
-    border: 1px solid rgba(68, 68, 68, 10%);
+    color: rgba(68, 68, 68, 20%);
+    border: var(--border-grey-thin);
     padding: 3px 7px;
     cursor: pointer;
 }
@@ -234,7 +234,7 @@
     max-width: 360px;
     width: 100%;
     padding: 40px;
-    border: 1px solid rgba(68, 68, 68, 0.1);
+    border: var(--border-grey-thin);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -245,7 +245,7 @@
     font-size: 32px;
     font-weight: 400;
     line-height: 38.4px;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary-color);
 }
 
 .priceRow {
@@ -254,7 +254,7 @@
     align-items: center;
     gap: 15px;
     border: none;
-    border-bottom: 1px solid rgba(68, 68, 68, 10%);
+    border-bottom: var(--border-grey-thin);
     padding: 0 0 15px 0;
     font-size: 16px;
     font-weight: 400;
@@ -277,7 +277,7 @@
 }
 
 .delimiter {
-    border-bottom: 2px solid rgba(0, 0, 0, 1);
+    border-bottom: var(--border-black-thick);
 }
 
 .total {
@@ -288,7 +288,7 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 34px;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary-color);
 }
 
 .totalPrice {
@@ -297,7 +297,7 @@
     font-weight: 400;
     line-height: 25px;
     text-align: right;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary-color);
 
     @media screen and (max-width: 480px) {
         font-size: 17px;
@@ -333,7 +333,7 @@
     font-size: 32px;
     font-weight: 400;
     line-height: 38.4px;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary-color);
 }
 
 .description {
@@ -351,7 +351,7 @@
 
 .input {
     border: none;
-    border-bottom: 1px solid rgba(68, 68, 68, 20%);
+    border-bottom: var(--border-grey-thin);
     width: 100%;
     padding: 0 0 15px 0;
     color: rgb(0 0 0);

@@ -71,7 +71,7 @@
 
 .input {
     border: none;
-    border-bottom: 1px solid rgba(68, 68, 68, 20%);
+    border-bottom: var(--border-grey-thin);
     width: 100%;
     padding: 0 0 15px 0;
     color: rgb(0 0 0);
@@ -106,7 +106,7 @@
     font-weight: 400;
     line-height: 29px;
     text-align: left;
-    border-bottom: 2px solid rgba(0, 0, 0, 1);
+    border-bottom: var(--border-black-thick);
     padding-bottom: 15px;
 }
 
@@ -138,7 +138,7 @@
 }
 
 .active {
-    color: rgba(255, 142, 142, 1);
+    color: var(--primary-red-color);
 
     &::before {
         content: "";
@@ -187,7 +187,7 @@
     height: 15px;
     flex-shrink: 0;
     flex-grow: 0;
-    border: 1px solid rgba(68, 68, 68, 20%);
+    border: var(--border-grey-thin);
     margin-right: 15px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -195,7 +195,7 @@
 }
 
 .colorCheckbox:checked+.colorName {
-    color: rgba(255, 142, 142, 1);
+    color: var(--primary-red-color);
 }
 
 .colorCheckbox:checked+.colorName::before {
@@ -380,14 +380,14 @@
 
 .input {
     border: none;
-    border-bottom: 1px solid rgba(68, 68, 68, 20%);
+    border-bottom: var(--border-grey-thin);
     width: 100%;
     padding: 0 0 15px 0;
     outline: none;
     font-size: 14px;
     font-weight: 400;
     line-height: 23.8px;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary-color);
     opacity: 1;
     cursor: pointer;
 }
@@ -510,17 +510,17 @@
 .label {
     font-size: 10px;
     font-weight: 800;
-    color: rgba(255, 255, 255, 1);
+    color: var(--primary-white-color);
     padding: 5px 10px;
     text-transform: uppercase;
 }
 
 .sale {
-    background-color: rgba(255, 142, 142, 1);
+    background-color: var(--primary-red-color);
 }
 
 .new {
-    background-color: rgba(149, 204, 181, 1);
+    background-color: var(--primary-green-color);
 }
 
 .favorites {
@@ -573,12 +573,12 @@
 }
 
 .buyButton {
-    color: rgba(255, 255, 255, 1);
+    color: var(--primary-white-color);
     font-size: 16px;
     font-weight: 600;
     line-height: 16px;
     border: none;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: var(--primary-color);
     padding: 17px 74px 17px 74px;
     cursor: pointer;
     width: 100%;
@@ -607,7 +607,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    color: rgba(0, 0, 0, 1);
+    color: var(--primary-color);
 }
 
 /* pagination */
@@ -635,7 +635,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    border-bottom: 3px solid rgba(0, 0, 0, 1);
+    border-bottom: 3px solid var(--primary-color);
     padding-bottom: 4px;
     max-width: 10px;
     width: 100%;

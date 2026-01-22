@@ -7,12 +7,12 @@
 }
 
 .button {
-    color: rgba(255, 255, 255, 1);
+    color: var(--primary-white-color);
     font-size: 16px;
     font-weight: 600;
     line-height: 16px;
     border: none;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: var(--primary-color);
     padding: 17px 74px 17px 74px;
     cursor: pointer;
     width: 100%;
@@ -21,6 +21,5 @@
 
 .verticalLine {
     min-width: 2px;
-    background: rgba(0, 0, 0, 1);
+    background: var(--primary-color);
 }
-
