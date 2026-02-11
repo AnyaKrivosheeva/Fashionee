@@ -5,9 +5,7 @@ import PromoCodeBlock from './PromoCodeBlock'
 import Order from './Order'
 import ProductsListCart from './ProductsListCart'
 import useLocalStorage from '../Hooks/useLocalStorage'
-
-const DISCOUNT_RATE = 0.1;
-const VALID_PROMO_CODE = 'ilovereact';
+import { resolvePromoDiscount, VALID_PROMO_CODE } from '../../utils/cartUtils';
 
 const Cart = (props) => {
     const {
@@ -20,15 +18,7 @@ const Cart = (props) => {
     const [promoDiscount, setPromoDiscount] = useLocalStorage('promoDiscount', 0);
 
     const onApplyPromo = (code) => {
-        if (!code) {
-            setPromoDiscount(0);
-            return;
-        }
-        if (code === VALID_PROMO_CODE) {
-            setPromoDiscount(DISCOUNT_RATE);
-        } else {
-            setPromoDiscount(0);
-        }
+        setPromoDiscount(resolvePromoDiscount(code));
     };
 
     const productsData = data.products;

@@ -1,7 +1,6 @@
 import styles from './Cart.module.scss'
 import Button from '../Button'
-
-const DELIVERY_COST = 15;
+import { calculateOrderSummary } from '../../utils/cartUtils'
 
 const Order = (props) => {
     const {
@@ -10,13 +9,12 @@ const Order = (props) => {
         onCheckout,
     } = props
 
-    const priceSum = CartProducts.reduce((total, product) => total + product.price * product.quantity, 0);
-
-    const discountAmount = priceSum * promoDiscount;
-
-    const delivery = priceSum > 0 ? DELIVERY_COST : 0;
-
-    const total = priceSum - discountAmount + delivery;
+    const {
+        priceSum,
+        discountAmount,
+        delivery,
+        total,
+    } = calculateOrderSummary(CartProducts, promoDiscount);
 
     return (
         <div className={styles.order}>

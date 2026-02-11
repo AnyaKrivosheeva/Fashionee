@@ -3,7 +3,7 @@ import data from '../../assets/products.json'
 import SideBar from './SideBar'
 import ProductsArea from './ProductsArea'
 import useLocalStorage from '../Hooks/useLocalStorage'
-import useDebounce from '../Hooks/useDebounce'
+import useDebounce from '../Hooks/useDebounce' 
 
 const Showcase = (props) => {
     const {

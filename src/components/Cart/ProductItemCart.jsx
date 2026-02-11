@@ -8,6 +8,8 @@ const ProductItemCart = (props) => {
         removeFromCart,
     } = props
 
+    const totalProductPrice = product.price * product.quantity;
+
     return (
         <div className={styles.product}>
             <div className={styles.photo}>
@@ -29,7 +31,7 @@ const ProductItemCart = (props) => {
                             <div className={styles.countButton} onClick={() => increaseQty(product.id)}>+</div>
                         </div>
                     </div>
-                    <div className={styles.totalProductPrice}>${product.price * product.quantity}</div>
+                    <div className={styles.totalProductPrice}>${totalProductPrice.toFixed(2)}</div>
                 </div>
                 <div className={styles.close} onClick={() => removeFromCart(product.id)}>X</div>
             </div>

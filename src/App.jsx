@@ -4,6 +4,7 @@ import ContentBlock from './components/ContentBlock'
 import Showcase from './components/Showcase/Showcase'
 import Cart from './components/Cart/Cart'
 import useLocalStorage from './components/Hooks/useLocalStorage'
+import { addToCartItems, increaseCartItemQuantity, decreaseCartItemQuantity, removeCartItem } from './utils/cartUtils'
 
 function App() {
     const [currentPage, setCurrentPage] = useLocalStorage('currentPage', 'Shop');
@@ -21,47 +22,19 @@ function App() {
     };
 
     const addToCart = (id) => {
-        setCart((cart) => {
-            const isExist = cart.find(item => item.id === id);
-
-            if (isExist) {
-                return cart.map(item =>
-                    item.id === id
-                        ? { ...item, quantity: item.quantity + 1 }
-                        : item
-                );
-            } else {
-                return [...cart, { id, quantity: 1 }];
-            }
-        });
+        setCart(cart => addToCartItems(cart, id));
     };
 
     const increaseQuantity = (id) => {
-        setCart(cart =>
-            cart.map(item =>
-                item.id === id
-                    ? { ...item, quantity: item.quantity + 1 }
-                    : item
-            )
-        );
+        setCart(cart => increaseCartItemQuantity(cart, id));
     };
 
     const decreaseQuantity = (id) => {
-        setCart(cart =>
-            cart
-                .map(item =>
-                    item.id === id
-                        ? { ...item, quantity: item.quantity - 1 }
-                        : item
-                )
-                .filter(item => item.quantity > 0)
-        );
+        setCart(cart => decreaseCartItemQuantity(cart, id));
     };
 
     const removeFromCart = (id) => {
-        setCart(cart =>
-            cart.filter(item => item.id !== id)
-        );
+        setCart(cart => removeCartItem(cart, id));
     };
 
     return (
