@@ -3,6 +3,7 @@ import {
     resolvePromoDiscount,
     calculateOrderSummary,
     addToCartItems,
+    increaseCartItemQuantity,
     decreaseCartItemQuantity,
     removeCartItem
 } from './cartUtils'
@@ -75,7 +76,13 @@ describe('adding items to cart', () => {
         const cart = [{ id: 1, quantity: 2 }];
 
         expect(addToCartItems(cart, id2)).toEqual([{ id: 1, quantity: 2 }, { id: 2, quantity: 1 }]);
-    })
+    });
+
+    test('increase quantity of existing item in cart', () => {
+        const cart = [{ id: 1, quantity: 1 }];
+
+        expect(increaseCartItemQuantity(cart, id1)).toEqual([{ id: 1, quantity: 2 }]);
+    }); 
 });
 
 describe('removing items from cart', () => {
@@ -90,13 +97,12 @@ describe('removing items from cart', () => {
     test('remove item from cart at all', () => {
         expect(removeCartItem(cart, 1)).toEqual([{ id: 2, quantity: 1 }]);
     });
-
-    test('decrease quantity of an item', () => {
-        expect(decreaseCartItemQuantity(cart, 1)).toEqual([{ id: 1, quantity: 1 }, { id: 2, quantity: 1 }]);
-    });
-
     test('remove item from cart when quantity becomes 0', () => {
         expect(decreaseCartItemQuantity(cart, 2)).toEqual([{ id: 1, quantity: 2 }]);
+    });
+
+    test('decrease quantity of an item in cart', () => {
+        expect(decreaseCartItemQuantity(cart, 1)).toEqual([{ id: 1, quantity: 1 }, { id: 2, quantity: 1 }]);
     });
 });
 
