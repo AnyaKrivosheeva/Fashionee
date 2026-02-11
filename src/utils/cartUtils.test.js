@@ -3,7 +3,6 @@ import {
     resolvePromoDiscount,
     calculateOrderSummary,
     addToCartItems,
-    increaseCartItemQuantity,
     decreaseCartItemQuantity,
     removeCartItem
 } from './cartUtils'
