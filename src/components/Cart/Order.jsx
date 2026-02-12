@@ -38,7 +38,7 @@ const Order = (props) => {
             </div>
             <div className={`${styles.priceRow} ${styles.total}`}>
                 <div className={styles.totalName}>Total</div>
-                <div className={styles.totalPrice}>${total.toFixed(2)}</div>
+                <div className={styles.totalPrice} data-testid='total-sum'>${total.toFixed(2)}</div>
             </div>
             <Button
                 wrapperClassName={styles.orderButtonWrapper}

@@ -1,4 +1,4 @@
-import { describe, test, expect } from 'vitest'
+import { describe, test, expect, beforeEach } from 'vitest'
 import {
     resolvePromoDiscount,
     calculateOrderSummary,
@@ -82,7 +82,7 @@ describe('adding items to cart', () => {
         const cart = [{ id: 1, quantity: 1 }];
 
         expect(increaseCartItemQuantity(cart, id1)).toEqual([{ id: 1, quantity: 2 }]);
-    }); 
+    });
 });
 
 describe('removing items from cart', () => {
