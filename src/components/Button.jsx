@@ -15,6 +15,6 @@ const Button = (props) => {
             <div className={styles.verticalLine}></div>
         </div>
     )
-}
+} 
 
 export default Button
